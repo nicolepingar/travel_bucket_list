@@ -17,7 +17,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minlength: 5,
-    },
+    },//!!! add blog 
 });
 // set up pre-save middleware to create password
 userSchema.pre("save", async function (next) {
