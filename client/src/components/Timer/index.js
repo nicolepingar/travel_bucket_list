@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Timer = () => {
+const DateTimer = () => {
     const [startDate, setStartDate] = useState(new Date());
     return (
         <div>
@@ -11,7 +11,7 @@ const Timer = () => {
     );
 };
 
-export default Timer;
+export default DateTimer;
 
 // get trip location & date to store in local storage
 // date picker https://www.npmjs.com/package/react-datepicker
