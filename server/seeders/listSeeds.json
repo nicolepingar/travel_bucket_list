@@ -1,0 +1,14 @@
+[
+    {
+        "location": "Paris, France",
+        "urgency": 1
+    },
+    {
+        "location": "Thailand",
+        "urgency": 2
+    },
+    {
+        "location": "Galapagos Islands",
+        "urgency": 1
+    }
+]
