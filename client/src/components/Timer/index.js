@@ -5,9 +5,11 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
 const DateTimer = () => {
-    // date picker https://www.npmjs.com/package/react-datepicker
+    // date picker https://www.npmjs.com/package/react-datepicker https://date-fns.org/docs/Getting-Started
     const [startDate, setStartDate] = useState(new Date());
     const [location, setLocation] = useState("");
+    const [LSDate, setLSDate] = useState(localStorage.getItem('date'));
+    const [LSLocation, setLSLocation] = useState(localStorage.getItem('location'));
     // updates input state for location 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -18,13 +20,16 @@ const DateTimer = () => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         e.preventDefault();
         localStorage.setItem('location', location);
-        localStorage.setItem('date', startDate);
+        localStorage.setItem('date', startDate); // stores in this format: Sat Dec 11 2021 16:40:15 GMT-0500 (Eastern Standard Time)
         setLocation('');
         setStartDate('');
+        setLSLocation(localStorage.getItem('location'));
+        setLSDate(localStorage.getItem('date'));
     };
 
     return (
         <div>
+            <h2>Your next trip to {LSLocation} is in: {LSDate}</h2>
             <Form>
                 <DatePicker selected={startDate} name="startDate" value={startDate} onChange={(date) => setStartDate(date)} />
                 <Form.Group className="mb-3" controlId="formGroupEmail">

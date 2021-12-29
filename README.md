@@ -6,6 +6,6 @@
 ## Bucket list 
 -- CRUD city, country
 ## Travel Diary
--- CRUD date, title, content
+-- CRUD date, title, content, must log in for diary?
 ## Countdown 
 -- enter date and location, use new technology for countdown 
