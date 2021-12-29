@@ -31,6 +31,7 @@ const DateTimer = () => {
         <div>
             <h2>Your next trip to {LSLocation} is in: {LSDate}</h2>
             <Form>
+                <Form.Label>Date of Next Trip</Form.Label>
                 <DatePicker selected={startDate} name="startDate" value={startDate} onChange={(date) => setStartDate(date)} />
                 <Form.Group className="mb-3" controlId="formGroupEmail">
                     <Form.Label>Destination</Form.Label>
@@ -43,5 +44,3 @@ const DateTimer = () => {
 };
 
 export default DateTimer;
-
-// get trip location & date to store in local storage
