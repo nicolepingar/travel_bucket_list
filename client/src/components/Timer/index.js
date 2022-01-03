@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 
 const DateTimer = () => {
-    // date picker https://www.npmjs.com/package/react-datepicker https://date-fns.org/docs/Getting-Started
+    // date picker https://www.npmjs.com/package/react-datepicker https://date-fns.org/docs/Getting-Started https://reactdatepicker.com/#example-configure-popper-properties
     const [startDate, setStartDate] = useState(new Date());
     const [location, setLocation] = useState("");
     const [LSDate, setLSDate] = useState(localStorage.getItem('date'));

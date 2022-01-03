@@ -1,3 +1,16 @@
+/* font-family: 'Abril Fatface', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Josefin Sans', sans-serif; 200, 400
+font-family: 'Lora', serif;
+font-family: 'Montserrat', sans-serif; 300, 900
+font-family: 'Roboto', sans-serif; 100, 400
+font-family: 'Staatliches', cursive; */
+
+/* Header */
+.main-header {
+  font-family: 'Staatliches', cursive;
+}
+
 /* https://codingyaar.com/responsive-bootstrap-navbar-center-logo/ */
 
 .navbar .navbar-nav .nav-link {
