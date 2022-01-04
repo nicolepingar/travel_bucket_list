@@ -19,6 +19,8 @@ const WeatherAPI = () => {
             .catch((err) => console.log(err));
 
 
+
+
     const handleInputChange = (e) => setSearch(e.target.value);
 
     const handleFormSubmit = (e) => {
@@ -40,13 +42,13 @@ const WeatherAPI = () => {
                 <Col>
                     <div>Search for a City</div>
                     <div>
-                        {Temp ? (<WeatherDetails
+                        <WeatherDetails
                             temp={Temp}
-                            humidity={Humidity}
-                            wind={Wind}
-                            description={Description}
-                            id={ID}
-                        />) : (<h3>No Results to display.</h3>)}
+                        // humidity={Humidity}
+                        // wind={Wind}
+                        // description={Description}
+                        // id={ID}
+                        /><h3>No Results to display.</h3>
                     </div>
                 </Col>
                 <Col>
