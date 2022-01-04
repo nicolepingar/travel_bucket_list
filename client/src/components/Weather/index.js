@@ -1,45 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import API from '../utils/API';
 
 const WeatherAPI = () => {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [city, setCity] = useState("");
+    // Set state for the search result and the search query
+    const [result, setResult] = useState({});
+    const [search, setSearch] = useState('');
 
-    const urlFront = "https://api.openweathermap.org/data/2.5/weather?q="
-    const urlEnd = "&units=imperial&appid=25228def002124465df0a57cc9a5803b"
+    const searchCity = (query) =>
+        API.search(query)
+            .then((res) => setResult(res.data))
+            .catch((err) => console.log(err));
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        return setCity(value);
-    }
 
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await fetch(
-                    urlFront + city + urlEnd
-                );
-                if (!response.ok) {
-                    throw new Error(
-                        `This is an HTTP error: The status is ${response.status}`
-                    );
-                }
-                let actualData = await response.json();
-                setData(actualData);
-                setError(null);
-            }
-            catch (err) {
-                setError(err.message);
-                setData(null);
-            } finally {
-                setLoading(false);
-            }
-        }
-        getData()
-    }, []);
+    const handleInputChange = (e) => setSearch(e.target.value);
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        searchCity(search);
+    };
+
+    const {
+        Temp = '',
+        Humidity = '',
+        Wind = '',
+        Description = '',
+        id = ''
+    } = result;
 
     return (
         <div>
@@ -52,6 +43,7 @@ const WeatherAPI = () => {
                     Submit
                 </Button>
             </Form>
+
         </div>
     );
 };
