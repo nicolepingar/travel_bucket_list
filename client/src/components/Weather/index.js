@@ -4,7 +4,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import API from '../utils/API';
+import API from '../../utils/API';
+import WeatherDetails from './details';
+import SearchForm from '../../pages/Search';
 
 const WeatherAPI = () => {
     // Set state for the search result and the search query
@@ -29,22 +31,32 @@ const WeatherAPI = () => {
         Humidity = '',
         Wind = '',
         Description = '',
-        id = ''
+        ID = ''
     } = result;
 
     return (
-        <div>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Location</Form.Label>
-                    <Form.Control onChange={handleInputChange} value={city} type="text" placeholder="City or Zip Code" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
-
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <div>Search for a City</div>
+                    <div>
+                        {Temp ? (<WeatherDetails
+                            temp={Temp}
+                            humidity={Humidity}
+                            wind={Wind}
+                            description={Description}
+                            id={ID}
+                        />) : (<h3>No Results to display.</h3>)}
+                    </div>
+                </Col>
+                <Col>
+                    <SearchForm
+                        value={search}
+                        handleInputChange={handleInputChange}
+                        handleFormSubmit={handleFormSubmit} />
+                </Col>
+            </Row>
+        </Container >
     );
 };
 
